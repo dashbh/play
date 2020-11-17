@@ -1,7 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders react app', () => {
-  render(<App />);
+describe('App component', () => {
+  it('should render', () => {
+    render(<App />);
+    const linkElement = screen.getByText(/Welcome to Play/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 });
